@@ -23,3 +23,8 @@ Desktop focus assistant:
 - You could have a holder for you phone, if you reach for it too early it has a negative reaction
 
 Interactive plant pot:
+- Sensors to measure air and soil humidity
+- Maybe an LDR to detect sunlight
+- If we specify the plant beforehand, it could have a frame/structure to grow it in
+- Sensors to monitor plant health?
+- Phone application to interact with it
