@@ -12,6 +12,8 @@ Something that
 Phone holder to stop you being distracted
 Like an actual physical tree for walking to be kept in your pocket
 
+A desktop focus assistant (interactive timer): Combines with infrared sensors or ultrasonic sensors to detect whether the user is working at the seat, and reminds the user to return to work or take a break when the user is away for too long or works for a certain period of time. The reminder frequency can be adjusted through simple touch interaction.
+
 Reacts to sound in the environment
 
 Wall-projected pet
