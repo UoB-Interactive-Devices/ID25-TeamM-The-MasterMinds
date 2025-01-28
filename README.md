@@ -23,6 +23,9 @@ Desktop focus assistant:
 - Potentially an application to track your screen time
 - You could have a holder for you phone, if you reach for it too early it has a negative reaction
 
+Novelty: Traditional Pomodoro tools often rely on digital timers with limited engagement, leading to user disconnection. 
+This idea introduces a novel approach by merging the Pomodoro technique with tangible, biofeedback-inspired interaction.
+
 Interactive plant pot:
 - Sensors to measure air and soil humidity
 - Maybe an LDR to detect sunlight
