@@ -1,0 +1,12 @@
+Notes:
+build emotional connection
+encourage further action
+respond to user's behaviour
+persistence of behaviour
+multiple input/outputs
+user friendly, easy to use
+ergonomic/friendly design
+
+
+Write-up:
+We believe that our companion should aim to build an emotional connection with the user. To achieve this, and to have a user-friendly design, both in terms of ergonomics and in aesthetics. To further build a connection, we'd also like it to have some sort of persistence of behaviour or memory to encourage lasting bonds. To accommodate a wider range of users, we would like it to have multiple input/output formats. 
