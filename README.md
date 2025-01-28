@@ -14,6 +14,7 @@ Team members:
 
 
 Ideas:
+
 Desktop focus assistant:
 - A plant/animal that reacts to your presence and behaviour at your desk
 - It would have a timer to determine how long you have been working
