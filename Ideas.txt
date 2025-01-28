@@ -7,7 +7,6 @@ If it's small, it could have a touchscreen.
 Buttons with braille?
 
 Seating posture corrector, makes a sound if you sit badly. Maybe a machine linked to a chair.
-Something that 
 
 Phone holder to stop you being distracted
 Like an actual physical tree for walking to be kept in your pocket
@@ -18,7 +17,29 @@ Wall-projected pet
 
 Physical interaction
 
+Have an accompanying app?
+
 Materials:
 Plastic
 Metal
 Rubber
+
+
+Potential hardware:
+LEDs
+Screens, LED and LCD
+Buttons
+Knobs/dials
+Switches
+LDR
+Motion sensors
+Humidity sensor
+Wifi/Bluetooth access?
+Touchscreen
+I/O:
+sound
+light
+touch
+
+
+
