@@ -1,0 +1,39 @@
+Course Goals
+Design an Innovative Interactive Device:
+
+Develop a creative device concept that addresses user needs.
+Ensure the concept has novelty and is not simply reinventing existing products.
+Learn to Prototype:
+
+Utilize tools like Arduino, sensors, 3D printers, laser cutters, and other hardware to build a working prototype.
+Combine sensors, motors, LEDs, or other components to create an interactive experience.
+Conduct User Evaluations:
+
+Test your prototype with users to gather feedback on its performance and usability.
+Use evaluation methods, especially in Human-Computer Interaction (HCI), to refine your design.
+Document and Share Your Work:
+
+Write a scientific-style paper documenting your process, with the potential for submission to an HCI conference (like CHI).
+Key Requirements
+Novelty: The project must offer something new, either in functionality, user interaction, or design. Avoid replicating products that already exist unless you add a unique twist.
+Interactivity: The device should involve a meaningful interaction between humans and technology, emphasizing emotional or practical engagement.
+Project Development Stages
+Ideation and Market Analysis (Week 1):
+
+Brainstorm 3 potential ideas per team.
+Research existing solutions to ensure your concept is unique.
+Start thinking about technical feasibility and user needs.
+Prototyping and Refinement (Weeks 2–3):
+
+Receive deeper training on tools like Arduino, sensors, and 3D printing.
+Scope the technical and design requirements with TAs.
+Begin building and iterating on your prototype.
+Specialization and Execution (Week 4 onwards):
+
+Define team roles and responsibilities.
+Create a build plan, ensuring tasks are distributed effectively.
+Iterate based on user feedback and technical challenges.
+Final Presentation:
+
+Showcase your prototype.
+Discuss its novelty, technical implementation, and user impact.
