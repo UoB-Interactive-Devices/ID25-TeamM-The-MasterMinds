@@ -1,0 +1,34 @@
+
+Yiwen Liang:
+Software development
+JavaScript/Python
+Machine learning and deep learning
+Some hardware from intro weeks
+
+
+
+Zhiming Liu:
+Software
+Deep learning
+Programming language: C/C++/Python/Java
+Gaming development
+Bit of web/app development
+
+
+
+Lihan Shen:
+Java/Python
+springboot
+Databases, SQL
+Machine learning/deep learning
+Modelling
+
+
+
+
+Navdeep Bhamrah Harley:
+Soldering/electronics, a little experience
+CAD, have used laser cutters and hardware before
+Programming in C/Python/Haskell/Java
+Some experience with data analysis and statistics
+Machine learning, deep learning
