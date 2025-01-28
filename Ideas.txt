@@ -51,8 +51,9 @@ Desktop focus assistant:
 Plant or animal that reacts badly to you leaving
 Timer to determine how long you've been working for
 Positive display that gets better the longer you work
-Infrared, motion sensor, microphone, could play music, will have lights
-
+Infrared, motion sensor, could play music, will have lights
+Application to check screen time?
+Put phone inside, it holds the phone and if you try to get it, it 'bites'?
 
 
 
@@ -62,7 +63,7 @@ Soil humidity
 LDR to test for sunlight
 Frame for climbing if it's a climbing plant
 Checks for plant health
-
+App to monitor/interact
 
 
 
