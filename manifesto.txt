@@ -6,6 +6,7 @@ persistence of behaviour
 multiple input/outputs
 user friendly, easy to use
 ergonomic/friendly design
+Personalization/adaptive functionality in the companion device, adapts to individual user patterns.
 
 
 Write-up:
