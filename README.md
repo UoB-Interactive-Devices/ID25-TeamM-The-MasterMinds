@@ -1,21 +1,23 @@
 # ID25-TeamM
 
-Things to add to this repo!
+### Things to add to this repo!
 - A team photo
 - A list of team members
 - A copy of your manifesto
 
+----
 
-Team members:
+### Team members:
 - Yiwen Liang
 - Zhiming Liu
 - Lihan Shen
 - Navdeep Bhamrah Harley
 
+----
 
-Ideas:
+### Ideas:
 
-Desktop focus assistant:
+#### Desktop focus assistant:
 - A plant/animal that reacts to your presence and behaviour at your desk
 - It would have a timer to determine how long you have been working
 - A positive display that improves the longer you work
@@ -27,9 +29,14 @@ Desktop focus assistant:
 Novelty: Traditional Pomodoro tools often rely on digital timers with limited engagement, leading to user disconnection. 
 This idea introduces a novel approach by merging the Pomodoro technique with tangible, biofeedback-inspired interaction.
 
-Interactive plant pot:
+#### Interactive plant pot:
 - Sensors to measure air and soil humidity
 - Maybe an LDR to detect sunlight
 - If we specify the plant beforehand, it could have a frame/structure to grow it in
 - Sensors to monitor plant health?
 - Phone application to interact with it
+
+[![Open in Overleaf](https://img.shields.io/badge/Open%20in-Overleaf-brightgreen)](https://www.overleaf.com/project/679ca6cbb84d88e2628a302c)
+
+
+
