@@ -49,11 +49,11 @@ The Focus Assistant is a desktop productivity device designed to help users main
 ----
 ### Usage
 
-The device will be placed next to the user's computer to accompany them while they study or work.
+- The device will be placed next to the user's computer to accompany them while they study or work.
 
-The user sets the concentration duration by adjusting a knob.
+- The user sets the concentration duration by adjusting a knob.
 
-During the set focus time, the plant provides visual feedback based on the user's leve
+- During the set focus time, the plant provides visual feedback based on the user's leve
 
 ----
 ### How It Works
