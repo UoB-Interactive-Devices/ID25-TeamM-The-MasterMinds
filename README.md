@@ -1,4 +1,4 @@
-# ID25-TeamM
+# ID25-TeamM, The MasterMinds
 
 ### Things to add to this repo!
 - A team photo
