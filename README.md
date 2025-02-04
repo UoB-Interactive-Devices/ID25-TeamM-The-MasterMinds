@@ -53,7 +53,7 @@ The Focus Assistant is a desktop productivity device designed to help users main
 
 - The user sets the concentration duration by adjusting a knob.
 
-- During the set focus time, the plant provides visual feedback based on the user's leve
+- During the set focus time, the plant provides visual feedback based on the user's behaviour and focus on their work
 
 ----
 ### How It Works
