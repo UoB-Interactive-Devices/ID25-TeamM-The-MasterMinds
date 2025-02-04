@@ -53,14 +53,14 @@ The Focus Assistant is a desktop productivity device designed to help users main
 
 - The user sets the concentration duration by adjusting a knob.
 
-- During the set focus time, the plant provides visual feedback based on the user's behaviour and focus on their work
+- During the set focus time, the plant provides visual feedback based on the user's behaviour and focus on their work.
 
 ----
 ### How It Works
 
 #### Reward Mechanism
 
-- Progress Indicator: As users continue working, the plant gradually brightens from root to tip, symbolizing growth and fostering a sense of responsibility.
+- Progress Indicator: As users continue working, the plant gradually brightens from root to tip, and begins to "grow", symbolizing growth and fostering a sense of responsibility.
 
 - Interruption Detection: If the user stops working (e.g., leaves the desk), the plant pauses its growth and may emit a soft auditory cue as a gentle reminder.
 
