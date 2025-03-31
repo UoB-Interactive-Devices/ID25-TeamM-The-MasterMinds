@@ -13,8 +13,8 @@
 # import threading
 
 # # ========== GPIO ==========
-# DIR_PIN = 22
-# STEP_PIN = 20
+# STEP_DIR_PIN_1 = 22
+# STEP_PIN_1 = 20
 # BUTTON_PIN = 22 
 
 # STEPS_PER_REV = 200
@@ -22,8 +22,8 @@
 
 # GPIO.setmode(GPIO.BCM)
 # GPIO.setwarnings(False)
-# GPIO.setup(STEP_PIN, GPIO.OUT)
-# GPIO.setup(DIR_PIN, GPIO.OUT)
+# GPIO.setup(STEP_PIN_1, GPIO.OUT)
+# GPIO.setup(STEP_DIR_PIN_1, GPIO.OUT)
 # GPIO.setup(BUTTON_PIN, GPIO.IN, pull_up_down=GPIO.PUD_UP)
 
 # # ========== motor control ==========
@@ -32,23 +32,23 @@
 # def rotate_motor():
 #     global motor_running
 #     while motor_running:
-#         GPIO.output(DIR_PIN, GPIO.HIGH)
+#         GPIO.output(STEP_DIR_PIN_1, GPIO.HIGH)
 #         for _ in range(STEPS_FOR_80_DEG):
 #             if not motor_running:
 #                 return
-#             GPIO.output(STEP_PIN, GPIO.HIGH)
+#             GPIO.output(STEP_PIN_1, GPIO.HIGH)
 #             time.sleep(0.005)
-#             GPIO.output(STEP_PIN, GPIO.LOW)
+#             GPIO.output(STEP_PIN_1, GPIO.LOW)
 #             time.sleep(0.005)
 #         time.sleep(1)
 
-#         GPIO.output(DIR_PIN, GPIO.LOW)
+#         GPIO.output(STEP_DIR_PIN_1, GPIO.LOW)
 #         for _ in range(STEPS_FOR_80_DEG):
 #             if not motor_running:
 #                 return
-#             GPIO.output(STEP_PIN, GPIO.HIGH)
+#             GPIO.output(STEP_PIN_1, GPIO.HIGH)
 #             time.sleep(0.005)
-#             GPIO.output(STEP_PIN, GPIO.LOW)
+#             GPIO.output(STEP_PIN_1, GPIO.LOW)
 #             time.sleep(0.005)
 #         time.sleep(1)
 
@@ -176,17 +176,27 @@ import RPi.GPIO as GPIO
 import threading
 
 # ========== GPIO ==========
-DIR_PIN = 22
-STEP_PIN = 20
 BUTTON_PIN = 22 
+
+# Pins for first stepper motor
+STEP_DIR_PIN_1 = 22
+STEP_PIN_1 = 20
+
+# Pins for second stepper motor
+STEP_DIR_PIN_2 = None
+STEP_PIN_2 = None
+
+# Pins for DC/perystaltic motor
+DC_DIR_PIN = None
+DC_PIN = None
 
 STEPS_PER_REV = 200
 STEPS_FOR_80_DEG = (STEPS_PER_REV * 80) // 360
 
 GPIO.setmode(GPIO.BCM)
 GPIO.setwarnings(False)
-GPIO.setup(STEP_PIN, GPIO.OUT)
-GPIO.setup(DIR_PIN, GPIO.OUT)
+GPIO.setup(STEP_PIN_1, GPIO.OUT)
+GPIO.setup(STEP_DIR_PIN_1, GPIO.OUT)
 GPIO.setup(BUTTON_PIN, GPIO.IN, pull_up_down=GPIO.PUD_UP)
 
 # ========== motor control ==========
@@ -196,22 +206,22 @@ motor_thread = None
 def rotate_motor():
     global motor_running
     while motor_running:
-        GPIO.output(DIR_PIN, GPIO.HIGH)
+        GPIO.output(STEP_DIR_PIN_1, GPIO.HIGH)
         for _ in range(STEPS_FOR_80_DEG):
             if not motor_running:
                 return
-            GPIO.output(STEP_PIN, GPIO.HIGH)
+            GPIO.output(STEP_PIN_1, GPIO.HIGH)
             time.sleep(0.005)
-            GPIO.output(STEP_PIN, GPIO.LOW)
+            GPIO.output(STEP_PIN_1, GPIO.LOW)
             time.sleep(0.005)
         time.sleep(1)
-        GPIO.output(DIR_PIN, GPIO.LOW)
+        GPIO.output(STEP_DIR_PIN_1, GPIO.LOW)
         for _ in range(STEPS_FOR_80_DEG):
             if not motor_running:
                 return
-            GPIO.output(STEP_PIN, GPIO.HIGH)
+            GPIO.output(STEP_PIN_1, GPIO.HIGH)
             time.sleep(0.005)
-            GPIO.output(STEP_PIN, GPIO.LOW)
+            GPIO.output(STEP_PIN_1, GPIO.LOW)
             time.sleep(0.005)
         time.sleep(1)
 
