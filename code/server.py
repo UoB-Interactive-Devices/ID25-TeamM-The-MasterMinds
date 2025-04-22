@@ -21,7 +21,7 @@ def detect_person():
     results.save(filename="result.jpg")
 
     for label, conf in zip(results.boxes.cls, results.boxes.conf):
-        if model.names[int(label)] == "person" and conf > 0.4:
+        if model.names[int(label)] == "person" and conf > 0.2:
             print("✅ detect person(conf:", float(conf), "）")
             return "yes"
 
@@ -29,4 +29,4 @@ def detect_person():
     return "no"
 
 if __name__ == "__main__":
-    app.run(host="0.0.0.0", port=5050)
+    app.run(host="0.0.0.0", port=5080)

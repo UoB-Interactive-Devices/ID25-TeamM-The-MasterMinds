@@ -259,7 +259,8 @@ DIR_PIN = 22
 STEP_PIN = 27
 DIR_PIN_2 = 20
 STEP_PIN_2 = 12
-
+DIR_PIN_3 = 23
+STEP_PIN_3 = 24
 
 BUTTON_PIN = 21
 
@@ -272,6 +273,8 @@ GPIO.setup(STEP_PIN, GPIO.OUT)
 GPIO.setup(DIR_PIN, GPIO.OUT)
 GPIO.setup(STEP_PIN_2, GPIO.OUT)
 GPIO.setup(DIR_PIN_2, GPIO.OUT)
+GPIO.setup(STEP_PIN_3, GPIO.OUT)
+GPIO.setup(DIR_PIN_3, GPIO.OUT)
 GPIO.setup(BUTTON_PIN, GPIO.IN, pull_up_down=GPIO.PUD_UP)
 
 # ========== detection ==========
@@ -330,90 +333,141 @@ moved_steps = 0
 #         time.sleep(0.005)
 #     moved_steps = 0
 
+def rotate_motor_linear():
+    global motor_running, moved_steps
+    step_interval = total_time / STEPS_FOR_80_DEG
+    GPIO.output(DIR_PIN, GPIO.HIGH)
+    GPIO.output(DIR_PIN_2, GPIO.HIGH)
+    GPIO.output(DIR_PIN_3, GPIO.HIGH)
+    while motor_running and moved_steps < STEPS_FOR_80_DEG:
+        if paused:
+            time.sleep(0.1)
+            continue
+        GPIO.output(STEP_PIN, GPIO.HIGH)
+        GPIO.output(STEP_PIN_2, GPIO.HIGH)
+        time.sleep(0.005)
+        GPIO.output(STEP_PIN, GPIO.LOW)
+        GPIO.output(STEP_PIN_2, GPIO.LOW)
+        time.sleep(0.005)
+        GPIO.output(STEP_PIN, GPIO.LOW)
+        GPIO.output(STEP_PIN_3, GPIO.LOW)
+        time.sleep(0.005)
+        moved_steps += 1
+        time.sleep(step_interval)
+
+def rotate_motor_linear():
+    global motor_running, moved_steps
+    step_interval = total_time / STEPS_FOR_80_DEG
+
+    GPIO.output(DIR_PIN, GPIO.HIGH)
+    GPIO.output(DIR_PIN_2, GPIO.HIGH)
+
+    # 启动 DC 电机
+    GPIO.output(DIR_PIN_3, GPIO.HIGH)
+    pwm_dc = GPIO.PWM(STEP_PIN_3, 3000)
+    pwm_dc.start(50)  # 占空比 50%
+
+    while motor_running and moved_steps < STEPS_FOR_80_DEG:
+        if paused:
+            pwm_dc.ChangeDutyCycle(0)  # DC 电机暂停
+            time.sleep(0.1)
+            continue
+
+        # 两个步进电机一起步进
+        GPIO.output(STEP_PIN, GPIO.HIGH)
+        GPIO.output(STEP_PIN_2, GPIO.HIGH)
+        time.sleep(0.005)
+        GPIO.output(STEP_PIN, GPIO.LOW)
+        GPIO.output(STEP_PIN_2, GPIO.LOW)
+        time.sleep(0.005)
+
+        moved_steps += 1
+        time.sleep(step_interval)
+
+        pwm_dc.ChangeDutyCycle(80)  # DC 电机继续运行
+
+    pwm_dc.stop()
+
+    
+    
+# def rotate_motor_linear():
+#     global motor_running, moved_steps
+#     step_interval = total_time / STEPS_FOR_80_DEG
+
+#     GPIO.output(DIR_PIN, GPIO.HIGH)
+
+
+#     GPIO.output(DIR_PIN_2, GPIO.HIGH)
+#     pwm_dc = GPIO.PWM(STEP_PIN_2, 3000)
+#     pwm_dc.start(50)
+
+
+#     GPIO.output(DIR_PIN_3, GPIO.HIGH)
+#     pwm_sc = GPIO.PWM(STEP_PIN_3, 3000)
+#     pwm_sc.start(50) 
+
+#     while motor_running and moved_steps < STEPS_FOR_80_DEG:
+#         if paused:
+#             pwm_dc.ChangeDutyCycle(0)  
+#             pwm_sc.ChangeDutyCycle(0)
+#             time.sleep(0.1)
+#             continue
+
+#         GPIO.output(STEP_PIN, GPIO.HIGH)
+#         time.sleep(0.005)
+#         GPIO.output(STEP_PIN, GPIO.LOW)
+#         time.sleep(0.005)
+
+#         moved_steps += 1
+#         time.sleep(step_interval)
+
+#         pwm_dc.ChangeDutyCycle(80) 
+#         pwm_sc.ChangeDutyCycle(50)
+
+#     pwm_dc.stop()
+
+
 # def rotate_motor_linear():
 #     global motor_running, moved_steps
 #     step_interval = total_time / STEPS_FOR_80_DEG
 #     GPIO.output(DIR_PIN, GPIO.HIGH)
 #     GPIO.output(DIR_PIN_2, GPIO.HIGH)
+
 #     while motor_running and moved_steps < STEPS_FOR_80_DEG:
 #         if paused:
 #             time.sleep(0.1)
 #             continue
+        
 #         GPIO.output(STEP_PIN, GPIO.HIGH)
-#         GPIO.output(STEP_PIN_2, GPIO.HIGH)
 #         time.sleep(0.005)
 #         GPIO.output(STEP_PIN, GPIO.LOW)
-#         GPIO.output(STEP_PIN_2, GPIO.LOW)
 #         time.sleep(0.005)
+
+#         for _ in range(2): 
+#             GPIO.output(STEP_PIN_2, GPIO.HIGH)
+#             time.sleep(0.003)
+#             GPIO.output(STEP_PIN_2, GPIO.LOW)
+#             time.sleep(0.003)
+
 #         moved_steps += 1
 #         time.sleep(step_interval)
-
-def rotate_motor_linear():
-    global motor_running, moved_steps
-
-    step_interval = total_time / STEPS_FOR_80_DEG
-
-    GPIO.output(DIR_PIN, GPIO.HIGH)
-    GPIO.output(DIR_PIN_2, GPIO.HIGH)
-
-    pwm2 = GPIO.PWM(STEP_PIN_2, 1000) 
-    pwm2.start(50)
-
-    while motor_running and moved_steps < STEPS_FOR_80_DEG:
-        if paused:
-            pwm2.ChangeDutyCycle(0) 
-            time.sleep(0.1)
-            continue
-        pwm2.ChangeDutyCycle(50) 
         
+def rotate_motor_reverse():
+    global moved_steps
+    GPIO.output(DIR_PIN, GPIO.LOW)
+    GPIO.output(DIR_PIN_2, GPIO.LOW)
+    GPIO.output(DIR_PIN_3, GPIO.LOW)
+    for _ in range(moved_steps):
         GPIO.output(STEP_PIN, GPIO.HIGH)
+        GPIO.output(STEP_PIN_2, GPIO.HIGH)
         time.sleep(0.005)
         GPIO.output(STEP_PIN, GPIO.LOW)
-        time.sleep(0.005)
-
-        moved_steps += 1
-        time.sleep(step_interval)
-
-    pwm2.stop()
-
-
-def rotate_motor_linear():
-    global motor_running, moved_steps
-    step_interval = total_time / STEPS_FOR_80_DEG
-    GPIO.output(DIR_PIN, GPIO.HIGH)
-    GPIO.output(DIR_PIN_2, GPIO.HIGH)
-
-    while motor_running and moved_steps < STEPS_FOR_80_DEG:
-        if paused:
-            time.sleep(0.1)
-            continue
-        
-        GPIO.output(STEP_PIN, GPIO.HIGH)
+        GPIO.output(STEP_PIN_2, GPIO.LOW)
         time.sleep(0.005)
         GPIO.output(STEP_PIN, GPIO.LOW)
+        GPIO.output(STEP_PIN_3, GPIO.LOW)
         time.sleep(0.005)
-
-        for _ in range(2): 
-            GPIO.output(STEP_PIN_2, GPIO.HIGH)
-            time.sleep(0.003)
-            GPIO.output(STEP_PIN_2, GPIO.LOW)
-            time.sleep(0.003)
-
-        moved_steps += 1
-        time.sleep(step_interval)
-        
-# def rotate_motor_reverse():
-#     global moved_steps
-#     GPIO.output(DIR_PIN, GPIO.LOW)
-#     GPIO.output(DIR_PIN_2, GPIO.LOW)
-#     for _ in range(moved_steps):
-#         GPIO.output(STEP_PIN, GPIO.HIGH)
-#         GPIO.output(STEP_PIN_2, GPIO.HIGH)
-#         time.sleep(0.005)
-#         GPIO.output(STEP_PIN, GPIO.LOW)
-#         GPIO.output(STEP_PIN_2, GPIO.LOW)
-#         time.sleep(0.005)
-#     moved_steps = 0
+    moved_steps = 0
 
 # ========== main ==========
 logging.basicConfig(level=logging.DEBUG)
